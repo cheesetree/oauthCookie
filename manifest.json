@@ -1,0 +1,31 @@
+{
+	"name": "oauthCookie",
+	"short_name": "oauthCookie_ShortName__",
+	"version": "0.1.0",
+	"icons": 
+	  { 
+		"16": "icon/icon16.png",             
+		"48": "icon/icon48.png",      
+		"128": "icon/icon128.png" 
+	  },
+	"description": "cookie utils for oauth login",
+	"minimum_chrome_version": "50.0.0.0",
+	"manifest_version": 2,
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	},
+	"author": "van",
+	"permissions": [
+		"nativeMessaging",
+		"<all_urls>",
+		"cookies"
+	],
+	"content_scripts":[{
+		"matches":["http://*/*", "https://*/*"],
+		 "js":["content.js"],
+		 "run_at": "document_end"
+		}],
+	"content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+	"web_accessible_resources": ["authCookie.js"]
+}
